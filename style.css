@@ -430,6 +430,22 @@ body {
 
 .contact-actions {
   margin: 2rem 0 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn-outline {
+  background: #fff;
+  color: var(--teal-dark);
+  border: 2px solid var(--teal);
+  box-shadow: none;
+}
+
+.btn-outline:hover {
+  box-shadow: 0 4px 12px rgba(29, 158, 117, 0.25);
 }
 
 .contact-note {
