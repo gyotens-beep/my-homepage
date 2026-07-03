@@ -1,23 +1,13 @@
 :root {
-  --bg: #fafaf8;
-  --text: #2a2a2e;
-  --muted: #6b6b74;
-  --accent: #3a6ea5;
-  --accent-dark: #2d5682;
+  --teal: #1D9E75;
+  --teal-dark: #157a5a;
+  --teal-pale: #e6f5ef;
+  --amber: #BA7517;
+  --bg: #fdfcf9;
+  --text: #2e2e2b;
+  --muted: #5f6660;
   --card-bg: #ffffff;
-  --border: #e4e4e0;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #1b1b1f;
-    --text: #ececf0;
-    --muted: #a3a3ac;
-    --accent: #7aa7d6;
-    --accent-dark: #a3c4e6;
-    --card-bg: #26262b;
-    --border: #3a3a40;
-  }
+  --border: #e2e6e1;
 }
 
 * {
@@ -28,44 +18,57 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
 }
 
 body {
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+  font-family: "Yu Gothic", "YuGothic", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.8;
+  font-size: 18px;
+  line-height: 2;
 }
 
+/* ヘッダー */
 .site-header {
   position: sticky;
   top: 0;
-  background: var(--bg);
+  background: rgba(253, 252, 249, 0.95);
   border-bottom: 1px solid var(--border);
   z-index: 10;
 }
 
 .nav {
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
-  padding: 0.8rem 1.2rem;
+  padding: 0.7rem 1.2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--text);
+  font-size: 1.15rem;
+  color: var(--teal-dark);
   text-decoration: none;
+}
+
+.logo-mark {
+  width: 2.2rem;
+  height: 1.1rem;
+  color: var(--teal);
 }
 
 .nav-links {
   display: flex;
-  gap: 1.2rem;
+  flex-wrap: wrap;
+  gap: 1.1rem;
   list-style: none;
 }
 
@@ -76,53 +79,324 @@ body {
 }
 
 .nav-links a:hover {
-  color: var(--accent);
+  color: var(--teal);
 }
 
+/* ヒーロー */
 .hero {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 6rem 1.2rem 5rem;
+  position: relative;
+  background: linear-gradient(170deg, var(--teal-pale) 0%, #f4faf7 100%);
   text-align: center;
+  overflow: hidden;
+}
+
+.hero-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 5rem 1.2rem 8rem;
+}
+
+.hero-area {
+  display: inline-block;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.3rem 1.2rem;
+  font-size: 0.9rem;
+  color: var(--teal-dark);
+  margin-bottom: 1.8rem;
 }
 
 .hero h1 {
-  font-size: clamp(1.6rem, 5vw, 2.5rem);
-  margin-bottom: 1rem;
+  font-size: clamp(2rem, 6.5vw, 3.2rem);
+  color: var(--teal-dark);
+  letter-spacing: 0.06em;
+  margin-bottom: 1.4rem;
 }
 
 .hero-lead {
-  color: var(--muted);
-  margin-bottom: 2rem;
+  color: var(--text);
+  margin-bottom: 2.4rem;
+}
+
+.hero-hill {
+  display: block;
+  width: 100%;
+  height: 5.5rem;
+  color: var(--teal);
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 .btn {
   display: inline-block;
-  background: var(--accent);
+  background: var(--amber);
   color: #fff;
-  padding: 0.7rem 2rem;
+  padding: 0.9rem 2.6rem;
   border-radius: 999px;
   text-decoration: none;
-  font-weight: 600;
-  transition: background 0.2s;
+  font-weight: 700;
+  font-size: 1.05rem;
+  box-shadow: 0 3px 10px rgba(186, 117, 23, 0.3);
+  transition: transform 0.15s, box-shadow 0.15s;
 }
 
 .btn:hover {
-  background: var(--accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(186, 117, 23, 0.4);
 }
 
+/* セクション共通 */
 .section {
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
-  padding: 3.5rem 1.2rem;
-  border-top: 1px solid var(--border);
+  padding: 4rem 1.2rem;
+}
+
+.section-tint {
+  max-width: none;
+  background: var(--teal-pale);
+}
+
+.section-tint > * {
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .section h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1.2rem;
-  padding-left: 0.75rem;
-  border-left: 4px solid var(--accent);
+  font-size: 1.7rem;
+  color: var(--teal-dark);
+  text-align: center;
+  margin-bottom: 2.2rem;
+  letter-spacing: 0.05em;
+}
+
+.section h2::after {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--amber);
+  margin: 0.7rem auto 0;
+}
+
+/* お悩み */
+.worry-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.9rem;
+  margin-bottom: 2.2rem;
+}
+
+.worry-list li {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.9rem 1.2rem 0.9rem 2.8rem;
+  position: relative;
+}
+
+.worry-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 1rem;
+  color: var(--teal);
+  font-weight: 700;
+}
+
+.worry-answer {
+  background: var(--teal);
+  color: #fff;
+  border-radius: 14px;
+  padding: 1.6rem 2rem;
+  text-align: center;
+}
+
+.worry-answer strong {
+  color: #ffe9c9;
+}
+
+/* 行天メソッド */
+.method-copy {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--teal-dark);
+  margin-bottom: 2.2rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.2rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.6rem;
+}
+
+.card-num {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background: var(--teal);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.9rem;
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  color: var(--teal-dark);
+  margin-bottom: 0.6rem;
+}
+
+.card h3 span {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.card p:last-child {
+  font-size: 0.98rem;
+}
+
+.card strong,
+.method-base strong,
+.profile strong {
+  color: var(--amber);
+}
+
+.method-base {
+  margin-top: 2rem;
+  background: var(--card-bg);
+  border: 2px solid var(--teal);
+  border-radius: 14px;
+  padding: 1.6rem 2rem;
+}
+
+.method-base h3 {
+  color: var(--teal-dark);
+  font-size: 1.15rem;
+  margin-bottom: 0.6rem;
+}
+
+/* ご利用の流れ */
+.flow-list {
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+  counter-reset: flow;
+}
+
+.flow-list li {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.4rem 1.8rem;
+  position: relative;
+}
+
+.flow-list li:not(:last-child)::after {
+  content: "▼";
+  position: absolute;
+  left: 50%;
+  bottom: -1.15rem;
+  transform: translateX(-50%);
+  color: var(--teal);
+  font-size: 0.8rem;
+}
+
+.flow-list h3 {
+  font-size: 1.2rem;
+  color: var(--teal-dark);
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.step {
+  background: var(--teal);
+  color: #fff;
+  font-size: 0.8rem;
+  border-radius: 999px;
+  padding: 0.15rem 0.9rem;
+  letter-spacing: 0.08em;
+}
+
+.flow-list p {
+  font-size: 0.98rem;
+  color: var(--muted);
+}
+
+.program-note {
+  margin-top: 2.2rem;
+  background: var(--teal-pale);
+  border-radius: 14px;
+  padding: 1.5rem 2rem;
+}
+
+.program-note h3 {
+  color: var(--teal-dark);
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+}
+
+.program-note ul {
+  list-style: none;
+}
+
+.program-note li {
+  padding-left: 1.4rem;
+  position: relative;
+}
+
+.program-note li::before {
+  content: "●";
+  position: absolute;
+  left: 0;
+  color: var(--amber);
+  font-size: 0.7rem;
+  top: 0.55rem;
+}
+
+/* 運営者 */
+.profile {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 2rem 2.2rem;
+}
+
+.profile-name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--teal-dark);
+  margin-bottom: 1rem;
+}
+
+.profile-name span {
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-weight: 600;
+  margin-left: 0.8rem;
+}
+
+.profile p + p {
+  margin-top: 0.9rem;
 }
 
 .tags {
@@ -130,58 +404,72 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
-  margin-top: 1.2rem;
+  margin-top: 1.4rem;
 }
 
 .tags li {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
+  background: var(--teal-pale);
   border-radius: 999px;
-  padding: 0.25rem 0.9rem;
+  padding: 0.25rem 1rem;
+  font-size: 0.88rem;
+  color: var(--teal-dark);
+}
+
+/* お問い合わせ */
+#contact {
+  text-align: center;
+}
+
+.contact-actions {
+  margin: 2rem 0 1.2rem;
+}
+
+.contact-note {
   font-size: 0.9rem;
   color: var(--muted);
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 1.2rem;
-}
-
-.card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.4rem;
-}
-
-.card h3 {
-  margin-bottom: 0.6rem;
-  font-size: 1.05rem;
-}
-
-.card p {
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-.contact-list {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-.contact-list a {
-  color: var(--accent);
-  font-weight: 600;
-}
-
+/* フッター */
 .site-footer {
-  border-top: 1px solid var(--border);
+  color: var(--teal);
+}
+
+.footer-hill {
+  display: block;
+  width: 100%;
+  height: 3rem;
+}
+
+.footer-inner {
+  background: var(--teal);
+  color: #eafff6;
   text-align: center;
-  padding: 2rem 1.2rem;
-  color: var(--muted);
-  font-size: 0.85rem;
+  padding: 1.8rem 1.2rem 2.2rem;
+  font-size: 0.9rem;
+}
+
+.footer-copy {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.5rem;
+}
+
+/* 改行の出し分け */
+.sp-only {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .sp-only {
+    display: inline;
+  }
+
+  .pc-only {
+    display: none;
+  }
+
+  .hero-inner {
+    padding-top: 3.5rem;
+  }
 }
