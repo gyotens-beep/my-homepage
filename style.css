@@ -494,6 +494,80 @@ body {
   margin-bottom: 0.5rem;
 }
 
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.8rem;
+  margin-bottom: 0.7rem;
+}
+
+.footer-links a {
+  color: #eafff6;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ご利用にあたって（policy.html） */
+.policy h2 {
+  margin-top: 3rem;
+}
+
+.policy h2:first-of-type {
+  margin-top: 0;
+}
+
+.policy h3 {
+  color: var(--teal-dark);
+  font-size: 1.15rem;
+  margin: 1.8rem 0 0.6rem;
+  padding-left: 0.7rem;
+  border-left: 4px solid var(--amber);
+}
+
+.policy ul {
+  list-style: none;
+}
+
+.policy li {
+  padding-left: 1.4rem;
+  position: relative;
+  margin-bottom: 0.4rem;
+}
+
+.policy li::before {
+  content: "●";
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  color: var(--teal);
+  font-size: 0.7rem;
+}
+
+.policy strong {
+  color: var(--teal-dark);
+}
+
+.policy a {
+  color: var(--teal-dark);
+}
+
+.policy-note {
+  background: var(--teal-pale);
+  border-radius: 10px;
+  padding: 0.9rem 1.4rem;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.policy-date {
+  margin-top: 2.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: right;
+}
+
 /* 改行の出し分け */
 .sp-only {
   display: none;
