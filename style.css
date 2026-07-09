@@ -438,18 +438,9 @@ body {
   color: var(--teal-dark);
 }
 
-/* お問い合わせ */
+/* お問い合わせ / ご予約 */
 #contact {
   text-align: center;
-}
-
-.contact-actions {
-  margin: 2rem 0 1.2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
 }
 
 .btn-outline {
@@ -461,6 +452,142 @@ body {
 
 .btn-outline:hover {
   box-shadow: 0 4px 12px rgba(29, 158, 117, 0.25);
+}
+
+.reserve-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.2rem;
+  margin: 2.2rem 0 1.8rem;
+  text-align: left;
+}
+
+.reserve-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.6rem 1.7rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.rc-badge {
+  align-self: flex-start;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.2rem 0.9rem;
+  margin-bottom: 0.8rem;
+}
+
+.rc-badge.free { background: var(--teal); }
+.rc-badge.paid { background: var(--amber); }
+
+.reserve-card h3 {
+  font-size: 1.2rem;
+  color: var(--teal-dark);
+  margin-bottom: 0.5rem;
+}
+
+.reserve-card > p {
+  color: var(--muted);
+  font-size: 0.96rem;
+  margin-bottom: 1.2rem;
+  flex-grow: 1;
+}
+
+.method-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.mbtn {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+
+.mbtn:hover { transform: translateY(-1px); }
+
+.mbtn.line {
+  background: #06C755;
+  color: #fff;
+}
+
+.mbtn.form {
+  background: var(--teal);
+  color: #fff;
+}
+
+.mbtn.tel {
+  background: var(--teal-pale);
+  color: var(--teal-dark);
+  border: 1px solid var(--border);
+}
+
+.mbtn.disabled {
+  background: #f0f0ed;
+  color: #9a9a94;
+  cursor: default;
+  border: 1px dashed #d3d3cd;
+}
+
+.line-block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem 2.5rem;
+  background: var(--teal-pale);
+  border-radius: 16px;
+  padding: 1.8rem 2rem;
+  text-align: left;
+}
+
+.line-text { flex: 1 1 300px; }
+
+.line-text h3 {
+  font-size: 1.2rem;
+  color: var(--teal-dark);
+  margin-bottom: 0.5rem;
+}
+
+.line-text p { font-size: 0.96rem; margin-bottom: 1rem; }
+
+.line-btn {
+  background: #06C755;
+  box-shadow: 0 3px 10px rgba(6, 199, 85, 0.3);
+}
+
+.line-btn:hover { box-shadow: 0 5px 14px rgba(6, 199, 85, 0.4); }
+
+.line-id {
+  margin-top: 0.7rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.qr {
+  background: #fff;
+  border-radius: 12px;
+  padding: 0.8rem;
+  text-align: center;
+}
+
+.qr img { display: block; width: 150px; height: 150px; }
+
+.qr figcaption {
+  margin-top: 0.4rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.4;
 }
 
 .contact-note {
